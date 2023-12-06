@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{AC384F00-D047-41B7-A60F-92CCB277E850}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DiscordOverlay.Helpers", "src\DiscordOverlay.Helpers\DiscordOverlay.Helpers.csproj", "{0CC3FF25-6DE0-43E6-976D-F4C7792B3681}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DiscordOverlay.Example", "src\DiscordOverlay.Example\DiscordOverlay.Example.csproj", "{7E875AEE-AEA2-4B4A-BCDF-24F2F16F9AC5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{0CC3FF25-6DE0-43E6-976D-F4C7792B3681} = {AC384F00-D047-41B7-A60F-92CCB277E850}
+		{7E875AEE-AEA2-4B4A-BCDF-24F2F16F9AC5} = {AC384F00-D047-41B7-A60F-92CCB277E850}
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0CC3FF25-6DE0-43E6-976D-F4C7792B3681}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0CC3FF25-6DE0-43E6-976D-F4C7792B3681}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0CC3FF25-6DE0-43E6-976D-F4C7792B3681}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0CC3FF25-6DE0-43E6-976D-F4C7792B3681}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7E875AEE-AEA2-4B4A-BCDF-24F2F16F9AC5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7E875AEE-AEA2-4B4A-BCDF-24F2F16F9AC5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7E875AEE-AEA2-4B4A-BCDF-24F2F16F9AC5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7E875AEE-AEA2-4B4A-BCDF-24F2F16F9AC5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
