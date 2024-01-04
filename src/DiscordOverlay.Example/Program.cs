@@ -1,9 +1,11 @@
-﻿var frame = new Frame(2560, 1440);
+﻿using SkiaSharp;
 
-var process = Process.GetProcessesByName("EscapeFromTarkov").FirstOrDefault();
+var frame = new Frame(2560, 1440);
+
+var process = Process.GetProcessesByName("ProjectZomboid64").FirstOrDefault();
 if (process is null)
 {
-    Console.WriteLine("EscapeFromTarkov is not running.");
+    Console.WriteLine("Project Zomboid is not running.");
     return;
 }
 
@@ -16,22 +18,29 @@ var isConnected = GraphicsPipe.ConnectToProcess(processInfo);
 
 if (isConnected)
 {
-    var centerX = frame.Width / 2;
-    var centerY = frame.Height / 2;
-    string fullText = "Hello World";
-    string currentText = "";
-
-    for (int i = 0; i <= fullText.Length; i++)
+    var random = new Random();
+    for (int i = 0; i < 100; i++)
     {
-        currentText = fullText.Substring(0, i);
-        Drawing.ClearCanvas(frame);
-        Drawing.DrawString(frame, currentText, centerX, centerY, Colours.Red, 24);
-        Drawing.DrawCircle(frame, centerX, centerY, 100, Colours.Green);
-
-        GraphicsPipe.SendFrame(processInfo, frame.Width, frame.Height, frame.Buffer, frame.Size);
-
-        Thread.Sleep(500);
+        var x = random.Next(0, frame.Width);
+        var y = random.Next(0, frame.Height);
+        var shouldFill = random.Next(0, 2) == 1;
+        var radius = random.Next(0, 100);
+        var color = new SKColor(
+            (byte)random.Next(0, 255), 
+            (byte)random.Next(0, 255), 
+            (byte)random.Next(0, 255)
+            );
+        Drawing.DrawCircle(
+            frame,
+            x,
+            y, 
+            radius, 
+            color, 
+            shouldFill
+            );
     }
+
+    GraphicsPipe.SendFrame(processInfo, frame.Width, frame.Height, frame.Buffer, frame.Size);
 }
 
 Console.ReadKey();
