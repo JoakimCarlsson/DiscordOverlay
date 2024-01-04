@@ -112,6 +112,15 @@ public static class Drawing
         paint.Style = fill ? SKPaintStyle.Fill : SKPaintStyle.Stroke;
         _canvas?.DrawCircle(x, y, radius, paint);
     }
+    
+    public static void ClearCanvas(
+        Frame frame,
+        SKColor? color = null  
+        )
+    {
+        EnsureSkiaInitialized(frame);
+        _canvas?.Clear(color ?? SKColors.Transparent);
+    }
 
     public static void CleanupSkia()
     {

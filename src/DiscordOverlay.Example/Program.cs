@@ -18,10 +18,20 @@ if (isConnected)
 {
     var centerX = frame.Width / 2;
     var centerY = frame.Height / 2;
+    string fullText = "Hello World";
+    string currentText = "";
 
-    Drawing.DrawString(frame, "Hello World", centerX, centerY, Colours.Red, 24);
-    Drawing.DrawCircle(frame, centerX, centerY, 100, Colours.Green);
-    GraphicsPipe.SendFrame(processInfo, frame.Width, frame.Height, frame.Buffer, frame.Size);
+    for (int i = 0; i <= fullText.Length; i++)
+    {
+        currentText = fullText.Substring(0, i);
+        Drawing.ClearCanvas(frame);
+        Drawing.DrawString(frame, currentText, centerX, centerY, Colours.Red, 24);
+        Drawing.DrawCircle(frame, centerX, centerY, 100, Colours.Green);
+
+        GraphicsPipe.SendFrame(processInfo, frame.Width, frame.Height, frame.Buffer, frame.Size);
+
+        Thread.Sleep(500);
+    }
 }
 
 Console.ReadKey();
