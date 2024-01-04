@@ -16,10 +16,25 @@ public static class Drawing
         if (_bufferHandle.IsAllocated)
             _bufferHandle.Free();
 
-        var info = new SKImageInfo(frame.Width, frame.Height, SKColorType.Bgra8888, SKAlphaType.Premul);
-        _bufferHandle = GCHandle.Alloc(frame.Buffer, GCHandleType.Pinned);
-        IntPtr ptr = _bufferHandle.AddrOfPinnedObject();
-        _surface = SKSurface.Create(info, ptr, frame.Width * 4);
+        var info = new SKImageInfo(
+            frame.Width, 
+            frame.Height, 
+            SKColorType.Bgra8888,
+            SKAlphaType.Premul
+            );
+        
+        _bufferHandle = GCHandle.Alloc(
+            frame.Buffer,
+            GCHandleType.Pinned
+            );
+        
+        var ptr = _bufferHandle.AddrOfPinnedObject();
+        _surface = SKSurface.Create(
+            info,
+            ptr, 
+            frame.Width * 4
+            );
+        
         _canvas = _surface.Canvas;
         _currentFrame = frame;
     }
@@ -37,7 +52,13 @@ public static class Drawing
         using var paint = new SKPaint();
         paint.Color = color;
         paint.StrokeWidth = 1;
-        _canvas?.DrawLine(x1, y1, x2, y2, paint);
+        _canvas?.DrawLine(
+            x1, 
+            y1, 
+            x2, 
+            y2,
+            paint
+            );
     }
 
     public static void DrawRectangle(
@@ -68,7 +89,12 @@ public static class Drawing
         paint.Color = color;
         paint.TextSize = fontSize;
         paint.IsAntialias = true;
-        _canvas?.DrawText(text, x, y, paint);
+        _canvas?.DrawText(
+            text,
+            x,
+            y,
+            paint
+            );
     }
     
     public static void DrawCircle(

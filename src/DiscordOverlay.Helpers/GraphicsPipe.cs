@@ -3,7 +3,7 @@
 public abstract class GraphicsPipe
 {
     private static readonly int HeaderSize = Marshal.SizeOf<Header>();
-    private static Header _cachedHeader = null!;
+    private static Header? _cachedHeader;
     
     [StructLayout(LayoutKind.Sequential)]
     public class Header
@@ -69,6 +69,9 @@ public abstract class GraphicsPipe
     {
         if (processInfo.MappedAddress == IntPtr.Zero)
             throw new InvalidOperationException("Process is not connected.");
+
+        if (_cachedHeader is null)
+            throw new ArgumentNullException(nameof(_cachedHeader), "Header is null.");
         
         var bufferPtr = IntPtr.Add(processInfo.MappedAddress, HeaderSize);
         Marshal.Copy(frame, 0, bufferPtr, size);

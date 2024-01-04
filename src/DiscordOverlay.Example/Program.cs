@@ -19,7 +19,7 @@ if (isConnected)
     var centerX = frame.Width / 2;
     var centerY = frame.Height / 2;
 
-    Drawing.DrawString(frame, "String", centerX, centerY, Colours.Red, 24);
+    Drawing.DrawString(frame, "Hello World", centerX, centerY, Colours.Red, 24);
     Drawing.DrawCircle(frame, centerX, centerY, 100, Colours.Green);
     GraphicsPipe.SendFrame(processInfo, frame.Width, frame.Height, frame.Buffer, frame.Size);
 }
