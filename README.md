@@ -28,3 +28,8 @@
   - It involves copying the frame buffer to the shared memory location mapped to Discord's process.
   - The header (`GraphicsPipe.Header`) is updated with the new frame's dimensions and frame count.
   - This process ensures that each new frame is accurately rendered in the overlay.
+
+### Images
+![image](https://github.com/JoakimCarlsson/DiscordOverlay/assets/6985685/69176977-8d39-4959-8087-bc9360e7d808)
+
+![image](https://github.com/JoakimCarlsson/DiscordOverlay/assets/6985685/61f98526-1255-4f3c-8abf-335892617b83)
