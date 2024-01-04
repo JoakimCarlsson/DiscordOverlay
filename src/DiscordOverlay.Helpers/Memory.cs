@@ -10,7 +10,7 @@ public static partial class Memory
         SetLastError = true
         )]
     public static partial IntPtr OpenFileMapping(
-        uint dwDesiredAccess,
+        IntPtr dwDesiredAccess,
         [MarshalAs(UnmanagedType.Bool)] bool bInheritHandle,
         string lpName
     );
@@ -18,10 +18,10 @@ public static partial class Memory
     [LibraryImport("kernel32.dll")]
     public static partial IntPtr MapViewOfFile(
         IntPtr hFileMappingObject,
-        uint dwDesiredAccess,
-        uint dwFileOffsetHigh,
-        uint dwFileOffsetLow,
-        uint dwNumberOfBytesToMap
+        IntPtr dwDesiredAccess,
+        IntPtr dwFileOffsetHigh,
+        IntPtr dwFileOffsetLow,
+        IntPtr dwNumberOfBytesToMap
     );
     
     [LibraryImport("kernel32.dll")]
@@ -32,5 +32,5 @@ public static partial class Memory
     [return: MarshalAs(UnmanagedType.Bool)]
     public static partial bool CloseHandle(IntPtr hObject);
     
-    public const uint FILE_MAP_ALL_ACCESS = 0xF001F;
+    public const IntPtr FILE_MAP_ALL_ACCESS = 0xF001F;
 }
